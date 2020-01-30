@@ -3630,6 +3630,7 @@ function WhammyRecorder(mediaStream, config) {
             }
         } else {
             video = document.createElement('video');
+            video.setAttribute("playsinline",true);
 
             setSrcObject(mediaStream, video);
 
@@ -4806,6 +4807,7 @@ function GifRecorder(mediaStream, config) {
 
     if (!isHTMLObject) {
         var video = document.createElement('video');
+        video.setAttribute("playsinline",true);
         video.muted = true;
         video.autoplay = true;
 
@@ -5270,6 +5272,8 @@ function MultiStreamsMixer(arrayOfMediaStreams, elementClass) {
 
     function getVideo(stream) {
         var video = document.createElement('video');
+        
+        video.setAttribute("playsinline",true);
 
         setSrcObject(stream, video);
 
@@ -5976,6 +5980,7 @@ function WebAssemblyRecorder(stream, config) {
             start: function(controller) {
                 var cvs = document.createElement('canvas');
                 var video = document.createElement('video');
+                video.setAttribute("playsinline",true);
                 video.srcObject = stream;
                 video.onplaying = function() {
                     cvs.width = config.width;
